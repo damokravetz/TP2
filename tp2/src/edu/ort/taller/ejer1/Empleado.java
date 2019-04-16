@@ -1,6 +1,6 @@
 package edu.ort.taller.ejer1;
 
-public abstract class Empleado {
+public class Empleado {
 	private String nombre;
 	private int edad;
 
