@@ -5,7 +5,6 @@ public class SubContratado extends Empleado {
 	private float precioHora;
 	
 	public SubContratado() {
-		super();
 		cantHoras = 0;
 		precioHora = 0;
 	}

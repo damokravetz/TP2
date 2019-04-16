@@ -3,12 +3,12 @@ package edu.ort.taller.ejer1;
 public abstract class Empleado {
 	private String nombre;
 	private int edad;
-	
+
 	public Empleado() {
-		nombre = "";
+		nombre = "Sin Nombre";
 		edad = 0;
 	}
-	
+
 	public Empleado(String nombre, int edad) {
 		this.nombre = nombre;
 		this.edad = edad;
@@ -34,8 +34,9 @@ public abstract class Empleado {
 	public String toString() {
 		return "[Nombre=" + nombre + ", edad=" + edad + "]";
 	}
-	
-	public float calcularPago(){return 0.0f; }
-	
-}
 
+	public float calcularPago() {
+		return 0.0f;
+	}
+
+}

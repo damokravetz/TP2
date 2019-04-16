@@ -4,7 +4,6 @@ public class Asalariado extends Empleado {
 	private float sueldo;
 	
 	public Asalariado(){
-		super();
 		sueldo = 0;
 	}
 	
@@ -15,7 +14,7 @@ public class Asalariado extends Empleado {
 
 	@Override
 	public String toString() {
-		return "[sueldo=" + sueldo + ", toString()=" + super.toString() + "]";
+		return super.toString()+"[sueldo=" + sueldo+"]";
 	}
 
 	@Override
