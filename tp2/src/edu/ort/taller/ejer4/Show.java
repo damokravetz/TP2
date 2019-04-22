@@ -8,50 +8,18 @@ public class Show {
 		comida=entrenador.getCantidadComida(animal, truco);
 		Cuidador cuidador=m.buscarCuidadorPorAnimal(animal);
 		if(cuidador.hayComida(comida, entrenador.getTipoComida(animal))==true) {
-			switch(animal.getClass().getSimpleName()) {
-			case "Delfin":
-				Delfin d=(Delfin)animal;
-				switch(truco) {
-				case 1:
-					d.truco1(comida);
-					break;
-				case 2:
-					d.truco2(comida);
-					break;
-				case 3:
-					d.truco3(comida);
-					break;
-				}
+			switch(truco){
+			case 1:
+				animal.truco1();
 				break;
-			case "Orca":
-				Orca o=(Orca)animal;
-				switch(truco) {
-				case 1:
-					o.truco1(comida);
-					break;
-				case 2:
-					o.truco2(comida);
-					break;
-				case 3:
-					o.truco3(comida);
-					break;
-				}
+			case 2:
+				animal.truco2();
 				break;
-			case "LoboMarino":
-				LoboMarino l=(LoboMarino)animal;
-				switch(truco) {
-				case 1:
-					l.truco1(comida);
-					break;
-				case 2:
-					l.truco2(comida);
-					break;
-				case 3:
-					l.truco3(comida);
-					break;
-				}
+			case 3:
+				animal.truco3();
 				break;
 			}
+			
 		}else {
 			System.out.println("No hay comida");
 		}

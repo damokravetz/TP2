@@ -32,5 +32,9 @@ public void setTamaño(double tamaño) {
 public String toString() {
 	return "Animal [nombre=" + nombre + ", peso=" + peso + ", tamaño=" + tamaño + "]";
 }
+public void truco1(){}
+public void truco2(){}
+public void truco3(){}
+
 
 }
