@@ -10,4 +10,8 @@ public Jornada() {
 	partidos=new ArrayList<Partido>();
 }
 
+public ArrayList<Partido> getPartidos() {
+	return partidos;
+}
+
 }
