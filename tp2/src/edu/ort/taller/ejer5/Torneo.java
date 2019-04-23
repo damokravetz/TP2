@@ -13,7 +13,21 @@ public abstract class Torneo {
 		jornadas = new ArrayList<Jornada>();
 		equipos = new ArrayList<Equipo>();
 	}
-	boolean verificarPartido(Partido partido){
+
+	void agregarPartidoYJornada(Partido partido) {
+		if (verificarPartido(partido) == true) {
+			Jornada jornada = new Jornada();
+			jornada.getPartidos().add(partido);
+			jornadas.add(jornada);
+			System.out.println("Partido añadido dentro de una nueva jornada.");
+		} else {
+			System.out.println("Partido no añadido. El partido " + partido.getEquipoLocal() + " vs "
+					+ partido.getEquipoVisitante() + " contiene equipos no enlistados en el torneo.");
+		}
+
+	}
+
+	boolean verificarPartido(Partido partido) {
 		int o = 0;
 		boolean equipo1 = false;
 		boolean equipo2 = false;
@@ -35,19 +49,19 @@ public abstract class Torneo {
 			if (equipo1 == true && equipo2 == true) {
 				res = true;
 			}
-	}
+		}
 		return res;
 	}
-	
-	void agregarPartidoJornada(Partido partido, int fecha){
-		if(verificarPartido(partido)==true&& fecha<jornadas.size()&&fecha>=0) {
-			jornadas.get(fecha).getPartidos().add(partido);
-		}else {
-			if(verificarPartido(partido)==false) {
+
+	void agregarPartidoJornada(Partido partido, int fecha) {
+		if (verificarPartido(partido) == true && fecha - 1 < jornadas.size() && fecha - 1 >= 0) {
+			jornadas.get(fecha - 1).getPartidos().add(partido);
+		} else {
+			if (verificarPartido(partido) == false) {
 				System.out.println("Partido no añadido. El partido " + partido.getEquipoLocal() + " vs "
 						+ partido.getEquipoVisitante() + " contiene equipos no enlistados en el torneo.");
 			}
-			if(fecha>=jornadas.size()||fecha<0) {
+			if (fecha - 1 >= jornadas.size() || fecha - 1 < 0) {
 				System.out.println("Partido no añadido, fecha invalida.");
 			}
 		}
@@ -66,7 +80,7 @@ public abstract class Torneo {
 		boolean salida = true;
 		ArrayList<Partido> misPartidos = jornada.getPartidos();
 		for (int i = 0; i < misPartidos.size(); i++) {
-			boolean res=verificarPartido(misPartidos.get(i));
+			boolean res = verificarPartido(misPartidos.get(i));
 			if (res == false) {
 				System.out.println("El partido " + misPartidos.get(i).getEquipoLocal() + " vs "
 						+ misPartidos.get(i).getEquipoVisitante() + " contiene equipos no enlistados en el torneo.");
@@ -83,4 +97,7 @@ public abstract class Torneo {
 			System.out.println("Este equipo supera la cantidad de jugadores permitidos.");
 		}
 	}
+	
+	
+
 }
