@@ -9,5 +9,7 @@ public OrganizacionTorneo() {
 	super();
 	torneos=new ArrayList<Torneo>();
 }
-
+void agregarTorneo(Torneo torneo){
+	torneos.add(torneo);
+}
 }

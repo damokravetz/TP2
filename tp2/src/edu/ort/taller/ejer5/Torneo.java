@@ -10,5 +10,11 @@ public Torneo(int cantMaxJugadores) {
 	this.cantMaxJugadores = cantMaxJugadores;
 	jornadas=new ArrayList<Jornada>();
 }
+void agregarJornada(Jornada jornada){
+	jornadas.add(jornada);
+}
+void agregarEquipo(){
+	
+}
 
 }
