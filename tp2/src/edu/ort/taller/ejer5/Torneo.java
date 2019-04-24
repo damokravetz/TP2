@@ -162,7 +162,7 @@ public abstract class Torneo {
 		return puntaje;
 	}
 
-	Puntaje devPtjeXEquipoTodasJorn(Equipo equipo) {
+	private Puntaje devPtjeXEquipoTodasJorn(Equipo equipo) {
 		Puntaje miPuntaje = new Puntaje();
 		for (int i = 0; i < jornadas.size(); i++) {
 			Puntaje puntaje = devolverPuntajeXEquipo(i, equipo);
