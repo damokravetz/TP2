@@ -97,62 +97,63 @@ public abstract class Torneo {
 			System.out.println("Este equipo supera la cantidad de jugadores permitidos.");
 		}
 	}
-	
+
 	void mostrarPuntos() {
-		
+
 	}
-	
-	private ArrayList <Partido> devolverPartidosXEquipo(int fecha, Equipo equipo) {
-		ArrayList <Partido> misPartidos=new ArrayList<Partido>();
-		for(int i=0;i<jornadas.get(fecha).getPartidos().size();i++) {
-			if(jornadas.get(fecha).getPartidos().get(i).getEquipoLocal().equals(equipo.getNombre())||jornadas.get(fecha).getPartidos().get(i).getEquipoVisitante().equals(equipo.getNombre())) {
+
+	private ArrayList<Partido> devolverPartidosXEquipo(int fecha, Equipo equipo) {
+		ArrayList<Partido> misPartidos = new ArrayList<Partido>();
+		for (int i = 0; i < jornadas.get(fecha).getPartidos().size(); i++) {
+			if (jornadas.get(fecha).getPartidos().get(i).getEquipoLocal().equals(equipo.getNombre())
+					|| jornadas.get(fecha).getPartidos().get(i).getEquipoVisitante().equals(equipo.getNombre())) {
 				misPartidos.add(jornadas.get(fecha).getPartidos().get(i));
 			}
 		}
 		return misPartidos;
 	}
-	
-	private Puntaje devolverPuntajeXEquipo(int fecha,Equipo equipo){
-		Puntaje puntaje=new Puntaje();
+
+	private Puntaje devolverPuntajeXEquipo(int fecha, Equipo equipo) {
+		Puntaje puntaje = new Puntaje();
 		puntaje.setNombreEquipo(equipo.getNombre());
-		ArrayList <Partido>misPartidos=devolverPartidosXEquipo(fecha,equipo);
-		for(int i=0;i<misPartidos.size();i++) {
-			Partido miPartido=misPartidos.get(i);
-			if(miPartido.getEquipoLocal().equals(equipo.getNombre())/*Soy local?*/) {
-				if(miPartido.getGolesLocal()>miPartido.getGolesVisitante()) {
+		ArrayList<Partido> misPartidos = devolverPartidosXEquipo(fecha, equipo);
+		for (int i = 0; i < misPartidos.size(); i++) {
+			Partido miPartido = misPartidos.get(i);
+			if (miPartido.getEquipoLocal().equals(equipo.getNombre())/* Soy local? */) {
+				if (miPartido.getGolesLocal() > miPartido.getGolesVisitante()) {
 					puntaje.addPartidosGanados();
-					if(miPartido.getGolesVisitante()==0) {
+					if (miPartido.getGolesVisitante() == 0) {
 						puntaje.addpartidosInvictos();
 					}
-					if((miPartido.getGolesLocal()-4)>miPartido.getGolesVisitante()) {
+					if ((miPartido.getGolesLocal() - 4) > miPartido.getGolesVisitante()) {
 						puntaje.addPartidosGanados4();
 					}
 				}
-				if(miPartido.getGolesLocal()<miPartido.getGolesVisitante()) {
+				if (miPartido.getGolesLocal() < miPartido.getGolesVisitante()) {
 					puntaje.addpartidosPerdidos();
 				}
-				if(miPartido.getGolesLocal()==miPartido.getGolesVisitante()) {
+				if (miPartido.getGolesLocal() == miPartido.getGolesVisitante()) {
 					puntaje.addpartidosEmpatados();
-					if(miPartido.getGolesLocal()>3&&miPartido.getGolesVisitante()>3) {
+					if (miPartido.getGolesLocal() > 3 && miPartido.getGolesVisitante() > 3) {
 						puntaje.addpartidosEmpatados3();
 					}
 				}
-			}else {
-				if(miPartido.getGolesLocal()<miPartido.getGolesVisitante()) {
+			} else {
+				if (miPartido.getGolesLocal() < miPartido.getGolesVisitante()) {
 					puntaje.addPartidosGanados();
-					if(miPartido.getGolesLocal()==0) {
+					if (miPartido.getGolesLocal() == 0) {
 						puntaje.addpartidosInvictos();
 					}
-					if((miPartido.getGolesVisitante()-4)>miPartido.getGolesLocal()) {
+					if ((miPartido.getGolesVisitante() - 4) > miPartido.getGolesLocal()) {
 						puntaje.addPartidosGanados4();
 					}
 				}
-				if(miPartido.getGolesLocal()>miPartido.getGolesVisitante()) {
+				if (miPartido.getGolesLocal() > miPartido.getGolesVisitante()) {
 					puntaje.addpartidosPerdidos();
 				}
-				if(miPartido.getGolesLocal()==miPartido.getGolesVisitante()) {
+				if (miPartido.getGolesLocal() == miPartido.getGolesVisitante()) {
 					puntaje.addpartidosEmpatados();
-					if(miPartido.getGolesLocal()>3&&miPartido.getGolesVisitante()>3) {
+					if (miPartido.getGolesLocal() > 3 && miPartido.getGolesVisitante() > 3) {
 						puntaje.addpartidosEmpatados3();
 					}
 				}
@@ -160,10 +161,11 @@ public abstract class Torneo {
 		}
 		return puntaje;
 	}
-	Puntaje devPtjeXEquipoTodasJorn(Equipo equipo){
-		Puntaje miPuntaje=new Puntaje();
-		for(int i=0;i<jornadas.size();i++) {
-			Puntaje puntaje=devolverPuntajeXEquipo(i, equipo);
+
+	Puntaje devPtjeXEquipoTodasJorn(Equipo equipo) {
+		Puntaje miPuntaje = new Puntaje();
+		for (int i = 0; i < jornadas.size(); i++) {
+			Puntaje puntaje = devolverPuntajeXEquipo(i, equipo);
 			miPuntaje.addpartidosEmpatados(puntaje.getPartidosEmpatados());
 			miPuntaje.addpartidosEmpatados3(puntaje.getPartidosEmpatados3());
 			miPuntaje.addPartidosGanados(puntaje.getPartidosGanados());
@@ -173,18 +175,18 @@ public abstract class Torneo {
 		}
 		return miPuntaje;
 	}
-	
-	public ArrayList<Puntaje> devolverPuntaje(){
-		ArrayList<Puntaje>puntajes=new ArrayList<Puntaje>();
-		for(int i=0;i<equipos.size();i++) {
-			Puntaje puntaje=devPtjeXEquipoTodasJorn(equipos.get(i));
+
+	public ArrayList<Puntaje> devolverPuntaje() {
+		ArrayList<Puntaje> puntajes = new ArrayList<Puntaje>();
+		for (int i = 0; i < equipos.size(); i++) {
+			Puntaje puntaje = devPtjeXEquipoTodasJorn(equipos.get(i));
 			puntajes.add(puntaje);
 		}
 		return puntajes;
 	}
+
 	public int getCantJornadas() {
 		return jornadas.size();
 	}
-	
 
 }

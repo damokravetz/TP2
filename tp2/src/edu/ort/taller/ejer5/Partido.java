@@ -5,7 +5,7 @@ public class Partido {
 	private String equipoVisitante;
 	private int golesLocal;
 	private int golesVisitante;
-	
+
 	public Partido(String equipoLocal, String equipoVisitante, int golesLocal, int golesVisitante) {
 		super();
 		this.equipoLocal = equipoLocal;
@@ -51,5 +51,5 @@ public class Partido {
 		return "Partido [equipoLocal=" + equipoLocal + ", equipoVisitante=" + equipoVisitante + ", golesLocal="
 				+ golesLocal + ", golesVisitante=" + golesVisitante + "]";
 	}
-	
+
 }

@@ -3,15 +3,15 @@ package edu.ort.taller.ejer5;
 import java.util.ArrayList;
 
 public class Jornada {
-private ArrayList<Partido>partidos;
+	private ArrayList<Partido> partidos;
 
-public Jornada() {
-	super();
-	partidos=new ArrayList<Partido>();
-}
+	public Jornada() {
+		super();
+		partidos = new ArrayList<Partido>();
+	}
 
-public ArrayList<Partido> getPartidos() {
-	return partidos;
-}
+	public ArrayList<Partido> getPartidos() {
+		return partidos;
+	}
 
 }
