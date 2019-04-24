@@ -32,23 +32,17 @@ public abstract class Torneo {
 		boolean equipo1 = false;
 		boolean equipo2 = false;
 		boolean res = false;
-		while (o < equipos.size() && res == false) {
-			if (equipo1 == false) {
-				if (partido.getEquipoLocal().equals(equipos.get(o).getNombre())) {
-					equipo1 = true;
-					o = 0;
-				}
-			} else {
-				if (equipo2 == false) {
-					if (partido.getEquipoVisitante().equals(equipos.get(o).getNombre())) {
-						equipo2 = true;
-					}
-				}
+		while(o<equipos.size()&&res==false) {
+			if(equipos.get(o).getNombre().equals(partido.getEquipoLocal())&&equipo1==false) {
+				equipo1=true;
+			}
+			if(equipos.get(o).getNombre().equals(partido.getEquipoVisitante())&&equipo2==false) {
+				equipo2=true;
+			}
+			if(equipo1==true &&equipo2==true) {
+				res=true;
 			}
 			o++;
-			if (equipo1 == true && equipo2 == true) {
-				res = true;
-			}
 		}
 		return res;
 	}
@@ -164,6 +158,7 @@ public abstract class Torneo {
 
 	private Puntaje devPtjeXEquipoTodasJorn(Equipo equipo) {
 		Puntaje miPuntaje = new Puntaje();
+		miPuntaje.setNombreEquipo(equipo.getNombre());
 		for (int i = 0; i < jornadas.size(); i++) {
 			Puntaje puntaje = devolverPuntajeXEquipo(i, equipo);
 			miPuntaje.addpartidosEmpatados(puntaje.getPartidosEmpatados());
@@ -187,6 +182,9 @@ public abstract class Torneo {
 
 	public int getCantJornadas() {
 		return jornadas.size();
+	}
+	public int getCantMaxJugadores() {
+		return cantMaxJugadores;
 	}
 
 }

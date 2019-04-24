@@ -13,5 +13,10 @@ public class Jornada {
 	public ArrayList<Partido> getPartidos() {
 		return partidos;
 	}
+	
+	public void AgregarPartido(Partido partido) {
+		partidos.add(partido);
+		System.out.println("Partido agregado a jornada");
+	}
 
 }
