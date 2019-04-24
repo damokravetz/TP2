@@ -160,13 +160,27 @@ public abstract class Torneo {
 		}
 		return puntaje;
 	}
-	devPtjeXEquipoTodasJorn(Equipo equipo){
+	Puntaje devPtjeXEquipoTodasJorn(Equipo equipo){
 		Puntaje miPuntaje=new Puntaje();
 		for(int i=0;i<jornadas.size();i++) {
 			Puntaje puntaje=devolverPuntajeXEquipo(i, equipo);
-			
+			miPuntaje.addpartidosEmpatados(puntaje.getPartidosEmpatados());
+			miPuntaje.addpartidosEmpatados3(puntaje.getPartidosEmpatados3());
+			miPuntaje.addPartidosGanados(puntaje.getPartidosGanados());
+			miPuntaje.addPartidosGanados4(puntaje.getPartidosGanados4());
+			miPuntaje.addpartidosInvictos(puntaje.getPartidosInvictos());
+			miPuntaje.addpartidosPerdidos(puntaje.getPartidosPerdidos());
 		}
-		
+		return miPuntaje;
+	}
+	
+	public ArrayList<Puntaje> devolverPuntaje(){
+		ArrayList<Puntaje>puntajes=new ArrayList<Puntaje>();
+		for(int i=0;i<equipos.size();i++) {
+			Puntaje puntaje=devPtjeXEquipoTodasJorn(equipos.get(i));
+			puntajes.add(puntaje);
+		}
+		return puntajes;
 	}
 	
 
