@@ -5,5 +5,8 @@ public class Futbol11 extends Torneo{
 	public Futbol11() {
 		super(11);
 	}
+	void mostrarPuntos() {
+		
+	}
 
 }

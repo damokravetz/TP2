@@ -5,5 +5,8 @@ public class Futbol8 extends Torneo{
 	public Futbol8() {
 		super(8);
 	}
+	void mostrarPuntos() {
+		
+	}
 
 }
