@@ -182,6 +182,9 @@ public abstract class Torneo {
 		}
 		return puntajes;
 	}
+	public int getCantJornadas() {
+		return jornadas.size();
+	}
 	
 
 }
