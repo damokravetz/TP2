@@ -2,8 +2,8 @@ package edu.ort.taller.ejer4;
 
 public class LoboMarino extends Animal{
 
-	public LoboMarino(String nombre, double peso, double tamaño) {
-		super(nombre, peso, tamaño);
+	public LoboMarino(String nombre, double peso, double tamanio) {
+		super(nombre, peso, tamanio);
 		// TODO Auto-generated constructor stub
 	}
 	public void truco1(double cangrejo) {

@@ -3,12 +3,12 @@ package edu.ort.taller.ejer4;
 public abstract class Animal {
 private String nombre;
 private double peso;
-private double tamaño;
-public Animal(String nombre, double peso, double tamaño) {
+private double tamanio;
+public Animal(String nombre, double peso, double tamanio) {
 	super();
 	this.nombre = nombre;
 	this.peso = peso;
-	this.tamaño = tamaño;
+	this.tamanio = tamanio;
 }
 public String getNombre() {
 	return nombre;
@@ -23,14 +23,14 @@ public void setPeso(double peso) {
 	this.peso = peso;
 }
 public double getTamaño() {
-	return tamaño;
+	return tamanio;
 }
 public void setTamaño(double tamaño) {
-	this.tamaño = tamaño;
+	this.tamanio = tamaño;
 }
 @Override
 public String toString() {
-	return "Animal [nombre=" + nombre + ", peso=" + peso + ", tamaño=" + tamaño + "]";
+	return "Animal [nombre=" + nombre + ", peso=" + peso + ", tamaño=" + tamanio + "]";
 }
 public void truco1(){}
 public void truco2(){}

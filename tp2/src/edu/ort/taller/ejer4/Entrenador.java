@@ -1,19 +1,19 @@
 package edu.ort.taller.ejer4;
 
 public class Entrenador extends Persona{
-private int añosXP;
+private int aniosXP;
 
-public Entrenador(String nombre, int horaIngreso, int horaEgreso, int añosXP) {
+public Entrenador(String nombre, int horaIngreso, int horaEgreso, int aniosXP) {
 	super(nombre, horaIngreso, horaEgreso);
-	this.añosXP = añosXP;
+	this.aniosXP = aniosXP;
 }
 
-public int getAñosXP() {
-	return añosXP;
+public int getAniosXP() {
+	return aniosXP;
 }
 
-public void setAñosXP(int añosXP) {
-	this.añosXP = añosXP;
+public void setAñosXP(int aniosXP) {
+	this.aniosXP = aniosXP;
 }
 
 public String getTipoComida(Animal animal) {

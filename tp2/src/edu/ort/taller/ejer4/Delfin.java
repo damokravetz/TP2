@@ -3,8 +3,8 @@ package edu.ort.taller.ejer4;
 public class Delfin extends Animal{
 	
 
-	public Delfin(String nombre, double peso, double tamaño) {
-		super(nombre, peso, tamaño);
+	public Delfin(String nombre, double peso, double tamanio) {
+		super(nombre, peso, tamanio);
 		// TODO Auto-generated constructor stub
 	}
 
