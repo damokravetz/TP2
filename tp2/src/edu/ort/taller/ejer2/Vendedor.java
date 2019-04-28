@@ -1,4 +1,6 @@
-package edu.ort.taller.ejer1;
+package edu.ort.taller.ejer2;
+
+import edu.ort.taller.ejer1.SubContratado;
 
 public class Vendedor extends SubContratado {
 	float porcentaje;
